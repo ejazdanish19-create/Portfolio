@@ -1,4 +1,5 @@
-
+// Start
+//This is The First Set up For This Typing Game
 class SpellCasterEngine {
     constructor() {
         this.score = 0;
@@ -15,7 +16,7 @@ class SpellCasterEngine {
         this.currentEnemyWord = this.wordBank[randomIndex];
         this.currentTypedBuffer = ""; 
     }
-
+//This Will Handle Player Keyboard Typing
     handleKeyPress(char) {
         if (char === "Backspace") {
             if (this.currentTypedBuffer.length > 0) {
@@ -53,7 +54,7 @@ const ctx = canvas.getContext("2d");
 const game = new SpellCasterEngine();
 let enemyX = 750;
 const enemySpeed = 1.5;
-
+//This Code Listens for The Player Keyboard Presses and Connects Them Directly to The Game Engine.
 window.addEventListener("keydown", (event) => {
     if (game.isGameOver()) return;
 
@@ -64,7 +65,7 @@ window.addEventListener("keydown", (event) => {
         game.handleKeyPress("Backspace");
     }
 });
-
+//This Code Check if The Enemy Get Hurt or Not
 function gameLoop() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
@@ -73,37 +74,31 @@ function gameLoop() {
         return;
     }
 
-    // --- GAME LOGIC UPDATES ---
     enemyX -= enemySpeed;
-    
-    // Check if monster reaches wizard bounds
+
     if (enemyX <= 180) {
         game.enemyReachedPlayer();
         enemyX = 750; 
     }
-
-    // --- VISUAL RENDERING ---
-    // Draw Wizard (Blue circle)
+// This Code Draws The Player Character
     ctx.beginPath();
     ctx.arc(150, canvas.height / 2, 30, 0, Math.PI * 2);
     ctx.fillStyle = "#3498db";
     ctx.fill();
     ctx.closePath();
-
-    // Draw Monster (Red circle)
+// This Code Draws The Enemy Monster
     ctx.beginPath();
     ctx.arc(enemyX, canvas.height / 2, 25, 0, Math.PI * 2);
     ctx.fillStyle = "#e74c3c";
     ctx.fill();
     ctx.closePath();
-
-    // Target Word floating above monster
+// This Code Draws The Target Magic Word Directly Above The Moving Enemy Circle so The Player Knows What to Type.
     ctx.fillStyle = "#ffffff";
     ctx.font = "bold 20px Arial";
     ctx.textAlign = "center";
     ctx.fillText(game.getEnemyWord(), enemyX, canvas.height / 2 - 40);
 
-    // Score & Health HUD
+    // This Code Check Score & Health HUD
     ctx.textAlign = "left";
     ctx.fillStyle = "#e0a96d";
     ctx.font = "22px Arial";
@@ -118,7 +113,7 @@ function gameLoop() {
     ctx.strokeStyle = "#ffffff";
     ctx.strokeRect(200, 420, 400, 50);
 
-    // Display what the player has actively typed
+    // This Code Display What The Player Has Actively Typed
     ctx.fillStyle = "#2ecc71";
     ctx.font = "24px Courier New";
     ctx.textAlign = "center";
@@ -132,7 +127,7 @@ function gameLoop() {
 
     requestAnimationFrame(gameLoop);
 }
-
+//This Function Shows a Dark "Game Over" On The Screen with Your Final Score When You Lose The Game.
 function drawGameOverScreen(finalScore) {
     ctx.fillStyle = "rgba(0, 0, 0, 0.85)";
     ctx.fillRect(0, 0, canvas.width, canvas.height);
@@ -147,5 +142,5 @@ function drawGameOverScreen(finalScore) {
     ctx.fillText(`Final Typing Score: ${finalScore}`, canvas.width / 2, canvas.height / 2 + 20);
 }
 
-// Start the game loop automatically
+// Start The Game Loop Automatically
 gameLoop();
