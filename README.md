@@ -15,6 +15,6 @@ I am a **Computer Engineering student at Jamia Millia Islamia**. I love building
 ### 📬 Connect with me
 * **Mobile:** +91 9971316155
 * **Email:** [ejazdanish19@gmail.com]
-* **LinkedIn:** [Danish Ejaz on LinkedIn](https://linkedin.com)
-* **Instagram:** [Danish Ejaz on Instagram](https://instagram.com)
-
+* **LinkedIn:** [Danish Ejaz on LinkedIn](www.linkedin.com/in/danish-ejaz-82a9b4380)
+* **Instagram:** [Danish Ejaz on Instagram](https://www.instagram.com/ejazdanish19/)
+* **LeetCode:** [My LeetCode Profile](https://leetcode.com/u/TO9dWaSBWe/)
